@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8"?>
+<abstracts:AbstractProduitRenderer xmlns:fx="http://ns.adobe.com/mxml/2009" 
+				xmlns:s="library://ns.adobe.com/flex/spark" 
+				xmlns:mx="library://ns.adobe.com/flex/mx"
+				xmlns:abstracts="com.jbouguima.remoting.main.abstracts.*"
+				height="65" width="330"
+				rollOver="itemRollOvrHandlr(event)" rollOut="itemRollOutHandlr(event)">
+	<fx:Script>
+		<![CDATA[
+			import com.jbouguima.remoting.IconesResources;
+		]]>
+	</fx:Script>
+	
+	<fx:Declarations>
+		<s:Fade id="fadeIn" alphaFrom="0" alphaTo="0.5" duration="300" target="{backg}"/>
+		<s:Fade id="fadeOut" alphaFrom="0.5" alphaTo="0" duration="300" target="{backg}"/>
+		<s:Resize id="resizeOn" heightFrom="65" heightTo="200" duration="300" target="{this}" />
+		<s:Resize id="resizeOff" heightFrom="200" heightTo="65" duration="300" target="{this}" />
+		<s:Fade id="fadeInShadow" alphaFrom="0.2" alphaTo="0.6" duration="300"/>
+		<s:Fade id="fadeOutShadow" alphaFrom="0.6" alphaTo="0.2" duration="300"/>
+	</fx:Declarations>
+	<s:Group width="100%" height="100%">
+		<s:Rect width="100%" height="100%">
+			<s:fill>
+				<s:SolidColor color="0xfafafa" />
+			</s:fill>
+		</s:Rect>
+		<s:Rect width="100%" height="100%" id="backg" alpha="0">
+			<s:fill>
+				<s:SolidColor color="0xF5F5F5" />
+			</s:fill>
+		</s:Rect>
+		<s:VGroup width="100%" height="100%" paddingLeft="10" paddingRight="10" paddingTop="5" paddingBottom="5">
+			<s:HGroup width="100%" height="56" verticalAlign="middle" gap="0" >
+				<s:VGroup height="100%" width="50%" verticalAlign="middle" horizontalAlign="center" gap="0">
+					<s:VGroup height="50%" width="100%" verticalAlign="middle">
+						<s:Image source="{IconesResources.PRODUCT_GREY_32}" />
+					</s:VGroup>
+					<s:VGroup height="50%" width="100%" verticalAlign="middle">
+						<s:Label id="nameLbl" text="{productName}" fontFamily="segoeui"  color="0x40a4ee" fontSize="13"/>
+					</s:VGroup>
+				</s:VGroup>
+				<s:VGroup height="100%" width="50%" verticalAlign="middle" horizontalAlign="center" gap="0">
+					<s:VGroup height="50%" width="100%" verticalAlign="middle" horizontalAlign="right">
+						<s:Label id="codeLbl" text="{productCode}" fontFamily="segoeui"  color="0xe74c3c" fontSize="13"/>
+					</s:VGroup>
+					<s:VGroup height="50%" width="100%" verticalAlign="middle" horizontalAlign="right">
+						<s:Label id="refLbl" text="{productReference}" fontFamily="segoeui"  color="0x40a4ee" fontSize="13"/>
+					</s:VGroup>
+				</s:VGroup>
+			</s:HGroup>
+			<s:VGroup id="produitDetailsBox" width="100%" height="100%" includeInLayout="false">
+				<s:HGroup width="100%" height="40" verticalAlign="middle" gap="10" >
+					<s:Image source="{IconesResources.STOCK_GREEN_18}" />
+					<s:Label id="qteStockLbl" text="{qteOnStock.toString()+' unité en stock'}" fontFamily="segoeui"  color="0x34495e" fontSize="13"/>
+				</s:HGroup>
+				<s:HGroup width="100%" height="40" verticalAlign="middle" gap="10" >
+					<s:Image source="{IconesResources.PRICE_GREEN_18}" />
+					<s:Label id="prixUnitaireLbl" text="{prixUnitaire.toString()+' $/unité'}" fontFamily="segoeui"  color="0x34495e" fontSize="13"/>
+				</s:HGroup>
+			</s:VGroup>
+		</s:VGroup>
+		
+	</s:Group>
+	<abstracts:filters>
+		<s:DropShadowFilter angle="45" distance="2" alpha="0.8" color="0xeeeeee" />
+	</abstracts:filters>
+</abstracts:AbstractProduitRenderer>

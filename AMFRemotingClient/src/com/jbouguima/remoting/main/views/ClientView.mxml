@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<abstracts:AbstractClientView xmlns:fx="http://ns.adobe.com/mxml/2009" 
+		 xmlns:s="library://ns.adobe.com/flex/spark" 
+		 xmlns:mx="library://ns.adobe.com/flex/mx"
+		 xmlns:business="com.jbouguima.remoting.gestionclient.business.*" 
+		 xmlns:controller="com.jbouguima.remoting.gestionclient.controller.*"
+		 xmlns:abstracts="com.jbouguima.remoting.main.abstracts.*"
+		 xmlns:components="com.jbouguima.remoting.main.components.*"
+		 xmlns:views="com.jbouguima.remoting.gestionclient.views.*">
+	<fx:Declarations>
+		<s:Fade id="fadeIn" alphaFrom="0" alphaTo="1" duration="300" />
+		<s:Fade id="fadeOut" alphaFrom="1" alphaTo="0" duration="300" />
+		<controller:ClientController />
+		<business:ClientServices />
+	</fx:Declarations>
+	<s:HGroup width="100%" height="100%" verticalAlign="top" horizontalAlign="left"
+			  paddingLeft="10" paddingTop="80" paddingRight="10" gap="2">
+		<s:Group width="300" height="100%" >
+			<s:Rect width="100%" height="100%" alpha="0.3">
+				<s:fill>
+					<s:SolidColor color="0xfafafa" />
+				</s:fill>
+			</s:Rect>
+			<s:VGroup width="100%" height="100%" verticalAlign="top" horizontalAlign="center" gap="0">
+				<components:FilterBox id="filterBox" width="100%" />
+				<s:List id="clientLst" width="100%" height="100%" doubleClickEnabled="true"
+						skinClass="com.jbouguima.remoting.main.skins.CListSkin"
+						itemRenderer="com.jbouguima.remoting.main.renderers.ClientRenderer">
+					<s:layout>
+						<s:VerticalLayout horizontalAlign="center" gap="2" />
+					</s:layout>
+				</s:List>
+			</s:VGroup>
+			<s:VGroup width="100%" height="100%" verticalAlign="bottom"
+					  horizontalAlign="left" paddingBottom="10" paddingLeft="10">
+				<components:CircleButton id="addClientBtn" buttonType="add" />
+			</s:VGroup>
+		</s:Group>
+		<s:Group width="100%" height="100%" >
+			<views:ListeOperationsClient id="listeOperationsClientBox" width="100%" height="100%"
+											   includeInLayout="false" visible="false" alpha="0"/>
+			<views:ManageClientBox id="manageClientBox" width="100%" height="100%" />
+		</s:Group>
+	</s:HGroup> 
+</abstracts:AbstractClientView>

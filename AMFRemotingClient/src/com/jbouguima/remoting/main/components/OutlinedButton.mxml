@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<abstracts:AbstractOutlinedButton xmlns:fx="http://ns.adobe.com/mxml/2009" 
+		 xmlns:s="library://ns.adobe.com/flex/spark" 
+		 xmlns:mx="library://ns.adobe.com/flex/mx" 
+		 xmlns:abstracts="com.jbouguima.remoting.main.abstracts.*" 
+		 buttonMode="true" rollOver="btnrollOverHandler(event)"
+		 rollOut="btnrollOutHandler(event)"
+		 width="120" height="32">
+	
+	<fx:Declarations>
+		<s:Fade id="fadeIn" alphaFrom="0" alphaTo="1" duration="300" target="{backg}"/>
+		<s:Fade id="fadeOut" alphaFrom="1" alphaTo="0" duration="300" target="{backg}"/>
+	</fx:Declarations>
+	<s:Rect id="backg" width="100%" height="100%" alpha="0" radiusX="5">
+		<s:fill>
+			<s:SolidColor color="{buttonColor}" />
+		</s:fill>
+	</s:Rect>
+	<s:Rect id="border" width="100%" height="100%" radiusX="5">
+		<s:stroke>
+			<s:SolidColorStroke color="{buttonColor}" />
+		</s:stroke>
+	</s:Rect>
+	<s:HGroup width="100%" height="100%" verticalAlign="middle" horizontalAlign="center">
+		<s:Label id="btnLbl" text="{label}" fontFamily="segoeui"  color="{buttonColor}" fontSize="14"/>
+	</s:HGroup>
+</abstracts:AbstractOutlinedButton >

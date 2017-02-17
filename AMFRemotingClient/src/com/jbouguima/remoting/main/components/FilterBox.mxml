@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<abstracts:AbstractFilterBox xmlns:fx="http://ns.adobe.com/mxml/2009" 
+		 xmlns:s="library://ns.adobe.com/flex/spark" 
+		 xmlns:mx="library://ns.adobe.com/flex/mx" 
+		 xmlns:abstracts="com.jbouguima.remoting.main.abstracts.*"
+		 xmlns:components="com.jbouguima.remoting.main.components.*"
+		 height="38">
+	<fx:Script>
+		<![CDATA[
+			import com.jbouguima.remoting.IconesResources;
+		]]>
+	</fx:Script>
+	<fx:Declarations>
+		<!-- Place non-visual elements (e.g., services, value objects) here -->
+	</fx:Declarations>
+	<s:HGroup width="100%" height="100%" verticalAlign="middle" paddingLeft="5" paddingRight="5">
+		<components:FilterText width="100%" id="filterInput"/>
+		<s:HGroup height="30">
+			<s:VGroup width="100%" height="100%" verticalAlign="middle" horizontalAlign="center">
+				<s:Image id="searchBtn" buttonMode="true" 
+						 source="{IconesResources.SEARCH_WHITE_ICONE_24}" />
+			</s:VGroup>
+		</s:HGroup>
+	</s:HGroup>
+</abstracts:AbstractFilterBox>

@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<cairngorm:ServiceLocator xmlns:mx="http://www.adobe.com/2006/mxml"
+						  xmlns:cairngorm="http://www.adobe.com/2006/cairngorm">
+	<mx:RemoteObject id="clientRO" destination="clientService" 
+					 endpoint="http://localhost:8080/messagebroker/short-polling-amf">
+	</mx:RemoteObject>
+	
+	<mx:RemoteObject id="govRO" destination="gouvernoratService" 
+					 endpoint="http://localhost:8080/messagebroker/short-polling-amf">
+	</mx:RemoteObject>	
+	
+	<mx:RemoteObject id="typesIdRO" destination="typeIdentiteService" 
+					 endpoint="http://localhost:8080/messagebroker/short-polling-amf">
+	</mx:RemoteObject>		
+	
+	<mx:RemoteObject id="produitRO" destination="produitService" 
+					 endpoint="http://localhost:8080/messagebroker/short-polling-amf">
+	</mx:RemoteObject>
+	
+	<mx:RemoteObject id="commandeRO" destination="commandeService" 
+					 endpoint="http://localhost:8080/messagebroker/short-polling-amf">
+	</mx:RemoteObject>
+	
+</cairngorm:ServiceLocator>

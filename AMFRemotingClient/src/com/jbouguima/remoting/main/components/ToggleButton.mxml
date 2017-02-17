@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<abstracts:AbstractToggleButton xmlns:fx="http://ns.adobe.com/mxml/2009" 
+		 xmlns:s="library://ns.adobe.com/flex/spark" 
+		 xmlns:mx="library://ns.adobe.com/flex/mx" 
+		 xmlns:abstracts="com.jbouguima.remoting.main.abstracts.*"
+		 width="60" height="28" creationComplete="init(event)">
+	<fx:Declarations>
+		<s:Fade id="fadeIn" duration="300" alphaFrom="0.3" alphaTo="0.6" target="{shadow}"/>
+		<s:Fade id="fadeOut" duration="300" alphaFrom="0.6" alphaTo="0.3" target="{shadow}"/>
+		<s:Move id="moveRL" duration="300" target="{button}" effectEnd="onMoveEnd(event)"/>
+	</fx:Declarations>
+	<s:Rect width="100%" height="100%" radiusX="5">
+		<s:fill>
+			<s:SolidColor id="back" color="0x0b8bee" />
+		</s:fill>
+	</s:Rect>
+	<s:HGroup width="100%" height="100%" verticalAlign="middle" gap="0">
+		<s:HGroup width="50%" height="100%" verticalAlign="middle" horizontalAlign="center">
+			<s:Label text="{LValue}" fontFamily="segoeui" fontStyle="normal" fontSize="16" color="0xffffff" />
+		</s:HGroup>
+		<s:HGroup width="50%" height="100%" verticalAlign="middle" horizontalAlign="center">
+			<s:Label text="{RValue}" fontFamily="segoeui" fontStyle="normal" fontSize="16" color="0xffffff" />
+		</s:HGroup>
+	</s:HGroup>
+	<s:Group id="button" width="30" height="100%" buttonMode="true" click="changeValue(event)"
+			 rollOver="{fadeOut.play()}" rollOut="{fadeIn.play()}">
+		<s:Rect width="100%" height="100%" radiusX="5">
+			<s:fill>
+				<s:SolidColor color="0xa5abaf" />
+			</s:fill>
+		</s:Rect>
+		<s:filters>
+			<s:DropShadowFilter id="shadow" color="0x636465" distance="2" angle="45" alpha="0.6" />
+		</s:filters>
+	</s:Group>
+</abstracts:AbstractToggleButton>

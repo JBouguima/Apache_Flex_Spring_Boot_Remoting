@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<abstracts:AbstractHomeButton xmlns:fx="http://ns.adobe.com/mxml/2009"
+							  xmlns:s="library://ns.adobe.com/flex/spark"
+							  xmlns:mx="library://ns.adobe.com/flex/mx"
+							  xmlns:components="com.jbouguima.remoting.main.components.*"
+							  xmlns:abstracts="com.jbouguima.remoting.main.abstracts.*"
+							  width="500" height="400">
+	<fx:Script>
+		<![CDATA[
+			import com.jbouguima.remoting.IconesResources;
+			import mx.effects.easing.Linear;
+		]]>
+	</fx:Script>
+	<fx:Declarations>
+		<s:Sine id="sineEasing"	easeInFraction="0.3"/>
+		<mx:Move id="moveDessus" duration="500"/>
+		
+		<mx:Move id="moveClient" duration="500" target="{clientBtn}" easingFunction="{Linear.easeIn}"/>
+		<mx:Move id="moveProduct" duration="500" target="{productBtn}" easingFunction="{Linear.easeIn}"/>
+		<mx:Move id="moveFacture" duration="500" target="{factureBtn}" easingFunction="{Linear.easeIn}"/>
+		<mx:Move id="moveCommand" duration="500" target="{commandBtn}" easingFunction="{Linear.easeIn}"/>
+		
+		<mx:Move id="moveDessous" duration="500" />
+		<s:Fade id="fadeOut" duration="500" alphaFrom="1" alphaTo="0"/>
+		<s:Fade id="fadeOutBtn" duration="500" alphaFrom="1" alphaTo="0"/>
+		<s:Fade id="fadeIn" duration="500" alphaFrom="0" alphaTo="1"/>
+	</fx:Declarations>
+
+			<s:Image id="middleLogo" source="{IconesResources.WELCOME_LOGO_ICON}"/>
+
+			<components:ImageButton id="clientBtn" topLabel="Clients" bottomLabel="Management"
+									icone_out="{IconesResources.CLIENT_ICONE_OUT}" 
+									icone_over="{IconesResources.CLIENT_ICONE_OVER}"/>
+
+			<components:ImageButton id="commandBtn" topLabel="Command" bottomLabel="Management"
+									icone_out="{IconesResources.COMMAND_ICONE_OUT}"
+									icone_over="{IconesResources.COMMAND_ICONE_OVER}" />
+
+			<components:ImageButton id="productBtn" topLabel="Product" bottomLabel="Management"
+									icone_out="{IconesResources.PRODUCT_ICONE_OUT}"
+									icone_over="{IconesResources.PRODUCT_ICONE_OVER}"/>
+
+			<components:ImageButton id="factureBtn" topLabel="Facture" bottomLabel="Management"
+									icone_out="{IconesResources.FACTURE_ICONE_OUT}" 
+									icone_over="{IconesResources.FACTURE_ICONE_OVER}"	/>
+	
+
+</abstracts:AbstractHomeButton>

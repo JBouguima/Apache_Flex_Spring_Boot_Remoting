@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<abstracts:AbstractAMFRemotingClient xmlns:fx="http://ns.adobe.com/mxml/2009" 
+			   xmlns:s="library://ns.adobe.com/flex/spark" 
+			   xmlns:mx="library://ns.adobe.com/flex/mx" 
+			   xmlns:abstracts="com.jbouguima.remoting.main.abstracts.*"
+			   xmlns:components="com.jbouguima.remoting.main.components.*"
+			   xmlns:views="com.jbouguima.remoting.main.views.*"
+			   skinClass="com.jbouguima.remoting.main.skins.ApplicationSkin">
+	<fx:Declarations>
+		<s:Fade id="Show" duration="200" alphaFrom="0.0" alphaTo="1.0"/> 
+		<s:Fade id="Hide" duration="200" alphaFrom="1.0" alphaTo="0.0"/>
+	</fx:Declarations>
+	<s:VGroup width="100%" height="100%" verticalAlign="top" horizontalAlign="center">
+		<components:TopMenu id="topMenu" width="100%"/>
+	</s:VGroup>	
+	<s:VGroup width="100%" height="100%" verticalAlign="middle" horizontalAlign="center">
+		<mx:ViewStack id="viewStack" selectedIndex="0"  width="100%" height="100%"  
+					  creationPolicy="all" clipContent="true" >
+			<s:NavigatorContent showEffect="{Show}" hideEffect="{Hide}">	
+				<views:HomeView id="homeView"  height="100%" width="100%" />
+			</s:NavigatorContent>
+			<s:NavigatorContent showEffect="{Show}" hideEffect="{Hide}">
+				<views:ClientView id="clientView"  height="100%" width="100%" />
+			</s:NavigatorContent>
+			<s:NavigatorContent showEffect="{Show}" hideEffect="{Hide}">
+				<views:ProductView id="productView"  height="100%" width="100%" />
+			</s:NavigatorContent>
+			<s:NavigatorContent showEffect="{Show}" hideEffect="{Hide}">
+				<views:CommandView id="commandView"  height="100%" width="100%" />
+			</s:NavigatorContent>
+			<s:NavigatorContent showEffect="{Show}" hideEffect="{Hide}">
+				<views:FactureView id="factureView"  height="100%" width="100%" />
+			</s:NavigatorContent>
+		</mx:ViewStack>
+	</s:VGroup>
+</abstracts:AbstractAMFRemotingClient>

@@ -1,0 +1,170 @@
+<?xml version="1.0" encoding="utf-8"?>
+<abstracts:AbstractProductPopup xmlns:fx="http://ns.adobe.com/mxml/2009" 
+		 xmlns:s="library://ns.adobe.com/flex/spark" 
+		 xmlns:mx="library://ns.adobe.com/flex/mx" 
+		 xmlns:components="com.jbouguima.remoting.main.components.*"
+		 xmlns:abstracts="com.jbouguima.remoting.main.abstracts.*"
+		 width="350">
+	<fx:Script>
+		<![CDATA[
+			import com.jbouguima.remoting.IconesResources;
+		]]>
+	</fx:Script>
+	<fx:Declarations>
+		<s:Move id="closeMove" duration="300" target="{this}"/>
+		<s:Move id="openMove" duration="300" target="{this}"/>
+		<s:Fade id="fadeInShadow" alphaFrom="0.2" alphaTo="0.6" duration="300"/>
+		<s:Fade id="fadeOutShadow" alphaFrom="0.6" alphaTo="0.2" duration="300"/>
+	</fx:Declarations>
+	<s:Rect width="100%" height="100%">
+		<s:fill>
+			<s:SolidColor color="0xfafafa" />
+		</s:fill>
+	</s:Rect>
+	<s:VGroup width="100%" height="100%" horizontalAlign="center" gap="0">
+		<s:HGroup width="100%" height="60" verticalAlign="middle" paddingLeft="10" paddingRight="10">
+			<s:Label text="{typeOperation}" fontFamily="segoeui"  color="0x2c3e50" fontSize="16"/>
+			<s:HGroup width="100%" height="100%" verticalAlign="middle" horizontalAlign="right">
+				<s:Image id="backIcone" buttonMode="true" source="{IconesResources.BACK_BLUE_28}" />
+				<s:Image id="btnIcone" buttonMode="true" source="{IconesResources.MENU_BLUE_ICONE_28}" />
+			</s:HGroup>
+		</s:HGroup>
+		<s:Line width="100%">
+			<s:stroke>
+				<s:SolidColorStroke color="0x2c3e50"  weight="2"/>
+			</s:stroke>
+		</s:Line>
+		<s:Group width="100%" height="100%">
+			
+			<s:VGroup id="newCommandePanel" width="100%" height="100%" horizontalAlign="center" gap="0">
+				<s:VGroup width="100%" height="200" verticalAlign="top" horizontalAlign="center" gap="0">
+					<s:List id="produitLst" width="100%" height="100%" doubleClickEnabled="true"
+							skinClass="com.jbouguima.remoting.main.skins.CListSkin"
+							itemRenderer="com.jbouguima.remoting.main.renderers.ProduitRenderer">
+						<s:layout>
+							<s:VerticalLayout horizontalAlign="center" gap="2" />
+						</s:layout>
+					</s:List>
+				</s:VGroup>
+				<s:Line width="100%" alpha="0.2">
+					<s:stroke>
+						<s:SolidColorStroke color="0x2c3e50"  weight="1"/>
+					</s:stroke>
+				</s:Line>
+				<s:Group width="100%" height="40" >
+					<s:Rect width="100%" height="100%">
+						<s:fill>
+							<s:SolidColor color="0xeaeef0" />
+						</s:fill>
+					</s:Rect>
+					<s:HGroup width="100%" height="100%" verticalAlign="middle" paddingLeft="10" paddingRight="10">
+						<s:Label text="Commande de produit :" fontFamily="segoeui"  color="0x2c3e50" fontSize="14"/>
+						<s:Label text="{selectedProductName}" fontFamily="segoeui"  color="0x40a4ee" fontSize="14"/>
+					</s:HGroup>
+				</s:Group>
+				<s:Line height="5" />
+				<components:BootTextInput id="qteProduitInput" prompt="Quantité" label="Quantité" isNumeric="true"/>
+				<s:Line height="10" />
+				<s:Group width="100%" height="40" >
+					<s:Rect width="100%" height="100%" alpha="0.2">
+						<s:fill>
+							<s:SolidColor color="0xeaeef0" />
+						</s:fill>
+					</s:Rect>
+					<s:HGroup width="100%" height="100%" verticalAlign="middle" paddingLeft="15" paddingRight="10">
+						<s:Label text="Prix Vente :" fontFamily="segoeui"  color="0x2c3e50" fontSize="14"/>
+						<s:Label text="{prixLigneCommande ? prixLigneCommande.toString()+' $':' - '}" fontFamily="segoeui"  
+								 color="0xf17502" fontSize="16"/>
+					</s:HGroup>
+				</s:Group>
+				<s:HGroup id="clientActionBtn" width="100%" height="40" verticalAlign="middle" gap="15" 
+						  horizontalAlign="right" paddingRight="15">
+					<s:Image id="addLigneBtn" buttonMode="true" 
+							 rollOver="{fadeOutShadow.play([shadowpurchase],false)}"
+							 rollOut="{fadeInShadow.play([shadowpurchase],false)}"
+							 source="{IconesResources.ADDCOMMAND_GREEN_18}"
+							 click="addLigneCommandeHandler(event)">
+						<s:filters>
+							<s:DropShadowFilter id="shadowpurchase" distance="2" alpha="0.6" angle="45" color="0x67696b" />
+						</s:filters>
+					</s:Image>
+					<s:Image id="cancelLigneBtn" buttonMode="true" 
+							 rollOver="{fadeOutShadow.play([shadowupdate],false)}"
+							 rollOut="{fadeInShadow.play([shadowupdate],false)}"
+							 source="{IconesResources.CANCEL_18}"
+							 click="cancelLigneCommandHandler(event)">
+						<s:filters>
+							<s:DropShadowFilter id="shadowupdate" distance="2" alpha="0.6" angle="45" color="0x67696b" />
+						</s:filters>					
+					</s:Image>
+				</s:HGroup>
+				<s:Group width="100%" height="40" >
+					<s:Rect width="100%" height="100%" alpha="0.2">
+						<s:fill>
+							<s:SolidColor color="0xeaeef0" />
+						</s:fill>
+					</s:Rect>
+					<s:HGroup width="100%" height="100%" verticalAlign="middle" paddingLeft="15" paddingRight="10">
+						<s:Label id="montanttotalLbl" text="{'Montant Totale: '+montantCommande.toString()}"
+								 fontFamily="segoeui"  color="0x2ecc71" fontSize="16"/>
+					</s:HGroup>
+				</s:Group>
+				<s:Line width="100%" alpha="0.2">
+					<s:stroke>
+						<s:SolidColorStroke color="0x2c3e50"  weight="1"/>
+					</s:stroke>
+				</s:Line>
+				<s:Group width="100%" height="40" >
+					<s:Rect width="100%" height="100%" alpha="0.2">
+						<s:fill>
+							<s:SolidColor color="0xeaeef0" />
+						</s:fill>
+					</s:Rect>
+					<s:HGroup width="100%" height="100%" verticalAlign="middle" paddingLeft="15" paddingRight="10">
+						<s:Label text="Mode de Payement :" fontFamily="segoeui"  color="0x2c3e50" fontSize="14"/>
+					</s:HGroup>
+				</s:Group>
+				<s:VGroup width="100%"  paddingLeft="15" paddingTop="10">
+					<s:RadioButton groupName="payementtype" 
+								   id="payementEspece" selected="true"
+								   label="Espèce" 
+								   width="150" fontFamily="segoeui"  color="0x2c3e50" fontSize="14"/>
+					<s:RadioButton groupName="payementtype" 
+								   id="payementCheque"
+								   label="Chèque" 
+								   width="150" fontFamily="segoeui"  color="0x2c3e50" fontSize="14"/>
+				</s:VGroup>
+				<s:VGroup width="100%" height="100%" paddingBottom="10" 
+						  verticalAlign="bottom" >
+					<s:HGroup width="100%" height="60" horizontalAlign="center">
+						<components:OutlinedButton id="cancelCommande" label="Annuler" buttonColor="0xf69414"
+												   click="cancelCommandeHandler(event)"/>
+						<components:OutlinedButton id="saveCommande" label="Enregistrer" buttonColor="0x14a3f6" 
+												   click="saveCommandeHandler(event)"/>
+					</s:HGroup> 
+				</s:VGroup>
+			</s:VGroup>
+			
+			<s:Group id="listeCommandePanel" width="100%" height="100%">
+				<s:VGroup width="100%" height="200" verticalAlign="top" horizontalAlign="center" gap="0">
+					<s:List id="commandesLst" width="100%" height="100%" doubleClickEnabled="true"
+							skinClass="com.jbouguima.remoting.main.skins.CListSkin"
+							itemRenderer="com.jbouguima.remoting.main.renderers.CommandeRenderer">
+						<s:layout>
+							<s:VerticalLayout horizontalAlign="center" gap="2" />
+						</s:layout>
+					</s:List>
+				</s:VGroup>
+				<s:VGroup width="100%" height="100%" verticalAlign="bottom"
+						  horizontalAlign="right" paddingBottom="10" paddingRight="10">
+					<components:CircleButton id="addCommandBtn" buttonType="add" />
+				</s:VGroup>
+			</s:Group>
+			
+		</s:Group>
+	</s:VGroup>
+	
+	<abstracts:filters>
+		<s:DropShadowFilter distance="3" angle="180" color="0xdedede" alpha="0.6" />
+	</abstracts:filters>
+</abstracts:AbstractProductPopup>

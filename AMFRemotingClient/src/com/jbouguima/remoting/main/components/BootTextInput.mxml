@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<abstracts:AbstractBootTextInput xmlns:fx="http://ns.adobe.com/mxml/2009" 
+		 xmlns:s="library://ns.adobe.com/flex/spark" 
+		 xmlns:mx="library://ns.adobe.com/flex/mx"
+		 xmlns:components="com.jbouguima.remoting.main.components.*"
+		 xmlns:abstracts="com.jbouguima.remoting.main.abstracts.*">
+	<fx:Declarations>
+		<!-- Place non-visual elements (e.g., services, value objects) here -->
+	</fx:Declarations>
+	<s:HGroup height="34" verticalAlign="middle">
+		<s:HGroup height="100%" verticalAlign="middle" width="100">
+			<s:Label id="lbl" text="{label}" fontFamily="segoeui" fontStyle="normal" fontSize="14" color="0x515253" />
+		</s:HGroup>
+		<components:BootstrapTextInput id="binput" prompt="{prompt}" text="{text}" />
+	</s:HGroup>
+</abstracts:AbstractBootTextInput>

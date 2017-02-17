@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="utf-8"?>
+<abstracts:AbstractManageClientBox xmlns:fx="http://ns.adobe.com/mxml/2009" 
+		 xmlns:s="library://ns.adobe.com/flex/spark" 
+		 xmlns:mx="library://ns.adobe.com/flex/mx"
+		 xmlns:abstracts="com.jbouguima.remoting.gestionclient.abstracts.*"
+		 xmlns:components="com.jbouguima.remoting.main.components.*"
+		 xmlns:nicedates="com.jbouguima.nicedates.simplepicker.*">
+	
+	<fx:Declarations>
+		<!-- Place non-visual elements (e.g., services, value objects) here -->
+	</fx:Declarations>
+	<s:Rect width="100%" height="100%" >
+		<s:fill>
+			<s:SolidColor color="0xfafafa" />
+		</s:fill>
+	</s:Rect>
+	<s:VGroup width="100%" height="100%" paddingLeft="10" paddingTop="10" gap="20">
+		<s:VGroup height="60" verticalAlign="middle" gap="10">
+			<s:Label text="{typeAction}" fontFamily="segoeui" fontStyle="normal" fontSize="18" color="0xec8306" />
+			<s:Group id="notificationOp" width="400" height="100%" alpha="0">
+				<s:Rect width="100%" height="100%" >
+					<s:fill>
+						<s:SolidColor color="{resultOpColor}" />
+					</s:fill>
+				</s:Rect>
+				<s:Rect width="100%" height="100%" >
+					<s:stroke>
+						<s:SolidColorStroke color="{resultOpColorStroke}" />
+					</s:stroke>
+				</s:Rect>
+				<s:HGroup width="100%" height="100%" verticalAlign="middle" horizontalAlign="center">
+					<s:Label text="{actionResult}" fontFamily="segoeui" fontStyle="normal" fontSize="14"
+							 color="{resultOpColorStroke}" />
+				</s:HGroup>
+			</s:Group>
+		</s:VGroup>
+		<s:HGroup height="34" verticalAlign="middle" gap="15">
+			<components:BootTextInput id="nomInput" prompt="Nom" label="Nom"/>
+			<components:BootTextInput id="prenomInput" prompt="Prenom" label="Prenom"/>
+		</s:HGroup>
+		<s:HGroup height="34" verticalAlign="middle" gap="15">
+			<s:HGroup height="100%" verticalAlign="middle" width="100">
+				<s:Label text="Date Naissance" fontFamily="segoeui" fontStyle="normal" fontSize="14" color="0x515253" />
+			</s:HGroup>
+			<nicedates:SimplePicker id="birthdateChooser" chooserDate="{new Date (2016, 9, 14)}" lang="fr_FR"/>
+		</s:HGroup>
+		<s:HGroup height="34" verticalAlign="middle" gap="5">
+			<s:HGroup height="100%" verticalAlign="middle" width="100">
+				<s:Label text="Sexe" fontFamily="segoeui" fontStyle="normal" fontSize="14" color="0x515253" />
+			</s:HGroup>
+			<components:ToggleButton id="sexeChooser" LValue="F" RValue="M"/>
+		</s:HGroup>
+		<components:BootTextInput id="codeClientInput" prompt="Code client" label="Code"/>
+		
+		<s:HGroup height="34" verticalAlign="middle" gap="30">
+			<components:BootTextInput id="identiteInput" prompt="num, id,..." label="Identité"/>
+			<s:ComboBox id="identiteChooser" dataProvider="{identiteTypeList}" labelField="libelleTypeIdentite"/>
+			<s:HGroup width="200" height="100%" verticalAlign="middle" gap="20">
+				<s:Label text="Date Del." fontFamily="segoeui" fontStyle="normal" fontSize="14" color="0x515253" />
+				<nicedates:SimplePicker id="identiteDateChooser" chooserDate="{new Date (2016, 9, 14)}" lang="fr_FR"/>
+			</s:HGroup>
+			<s:Line width="20" />
+			<s:CheckBox id="idPrincipalCheckbx" label="Id Principale" fontFamily="segoeui" fontStyle="normal" fontSize="14" color="0x515253"/>
+		</s:HGroup>
+		
+		<components:BootTextInput id="professionInput" prompt="Profession" label="Profession"/>
+		<s:HGroup height="34" verticalAlign="middle" gap="30">
+			<components:BootTextInput id="adresseInput" prompt="rue, cité, .." label="Adresse"/>
+			<s:ComboBox id="govChooser" dataProvider="{govList}" labelField="nomGouvernorat"/>
+		</s:HGroup>
+		
+		<s:HGroup height="100%" verticalAlign="bottom" gap="20" paddingBottom="20" horizontalAlign="right" paddingRight="20">
+			<components:OutlinedButton id="cancelBtn" label="Cancel" buttonColor="0xf39c12" click="cancelSaveHandler(event)"/>
+			<components:OutlinedButton id="saveUserBtn" label="Save" buttonColor="0x2ecc71" click="saveUserHandler(event)"/>
+		</s:HGroup>
+	</s:VGroup>
+	
+</abstracts:AbstractManageClientBox>

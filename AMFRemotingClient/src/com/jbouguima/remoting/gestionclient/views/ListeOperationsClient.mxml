@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<abstracts:AbstractListeOperationsClient xmlns:fx="http://ns.adobe.com/mxml/2009" 
+		 xmlns:s="library://ns.adobe.com/flex/spark" 
+		 xmlns:mx="library://ns.adobe.com/flex/mx"
+		 xmlns:abstracts="com.jbouguima.remoting.gestionclient.abstracts.*">
+	<fx:Declarations>
+		<!-- Place non-visual elements (e.g., services, value objects) here -->
+	</fx:Declarations>
+	<s:VGroup id="dataGridView" width="100%" height="100%" horizontalAlign="center">
+		<s:DataGrid id="resultatMesureDG"  width="100%" height="100%"
+					skinClass="com.jbouguima.remoting.main.skins.SDataGridSkin" 
+					dataProvider="{listeLignesCommandes}">
+			<s:columns>
+				<s:ArrayList>
+					<s:GridColumn dataField="nomProduit" headerText="Nom"
+								  headerRenderer="com.jbouguima.remoting.main.renderers.DGHeaderRenderer"
+								  itemRenderer="com.jbouguima.remoting.main.renderers.DGNormalRenderer"/>
+					<s:GridColumn dataField="refProduit" headerText="Ref"
+								  headerRenderer="com.jbouguima.remoting.main.renderers.DGHeaderRenderer"
+								  itemRenderer="com.jbouguima.remoting.main.renderers.DGNormalRenderer"/>
+					<s:GridColumn dataField="codeProduit" headerText="Code"
+								  headerRenderer="com.jbouguima.remoting.main.renderers.DGHeaderRenderer"
+								  itemRenderer="com.jbouguima.remoting.main.renderers.DGNormalRenderer"/>
+					<s:GridColumn dataField="qteStockProduit" headerText="Qté Stock"
+								  headerRenderer="com.jbouguima.remoting.main.renderers.DGHeaderRenderer"
+								  itemRenderer="com.jbouguima.remoting.main.renderers.DGNormalRenderer"/>
+					<s:GridColumn dataField="prixVenteProduit" headerText="Prix Vente"
+								  headerRenderer="com.jbouguima.remoting.main.renderers.DGHeaderRenderer"
+								  itemRenderer="com.jbouguima.remoting.main.renderers.DGNormalRenderer"/>
+					<s:GridColumn dataField="qteSaisie" headerText="Qté"
+								  headerRenderer="com.jbouguima.remoting.main.renderers.DGHeaderRenderer"
+								  itemRenderer="com.jbouguima.remoting.main.renderers.DGNormalRenderer"/>						
+				</s:ArrayList>
+			</s:columns>
+		</s:DataGrid>
+	</s:VGroup>
+</abstracts:AbstractListeOperationsClient>
